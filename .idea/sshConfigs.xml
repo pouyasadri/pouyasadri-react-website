@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="access915720406.webspace-data.io" id="860a8a8b-93ea-4031-8df0-c49e4fcb6ddf" port="22" nameFormat="DESCRIPTIVE" username="u108837968" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5c9d2342-bd08-46a4-9859-a37780431ab4" name="pouyasadri.com" url="https://pouyasadri.com">
+        <fileTransfer rootFolder="/react" accessType="SFTP" host="access915720406.webspace-data.io" port="22" sshConfigId="860a8a8b-93ea-4031-8df0-c49e4fcb6ddf" sshConfig="u108837968@access915720406.webspace-data.io:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

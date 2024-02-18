@@ -1,0 +1,1 @@
+{"version":3,"sources":["Footer.css"],"names":[],"mappings":"AAAA,aACE,iBAAkB,CAElB,eAAiB,CACjB,+BACF,CAEA,YACE,eACF","file":"11.d65342fe.chunk.css","sourcesContent":[".footer-text {\n  text-align: center;\n  /* color: #868e96; */\n  font-weight: bold;\n  font-family: \"Google Sans Regular\";\n}\n\n.footer-div {\n  margin-top: 2rem;\n}\n"]}
