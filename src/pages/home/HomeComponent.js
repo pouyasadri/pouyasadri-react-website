@@ -19,17 +19,17 @@ const Home = ({theme}) => {
 
     return (
         <>
-            {isFrench && isShow && (
-                <div className="alert">
-                    <span className="closebtn" onClick={() => setIsShow(false)}>&times;</span>
-                    <Button
-                        className="change-language-btn"
-                        text="Continuez en Français 🇫🇷"
-                        href="https://fr.pouyasadri.com"
-                        theme={theme}
-                    />
-                </div>
-            )}
+            {/*{isFrench && isShow && (*/}
+            {/*    <div className="alert">*/}
+            {/*        <span className="closebtn" onClick={() => setIsShow(false)}>&times;</span>*/}
+            {/*        <Button*/}
+            {/*            className="change-language-btn"*/}
+            {/*            text="Continuez en Français 🇫🇷"*/}
+            {/*            href="https://fr.pouyasadri.com"*/}
+            {/*            theme={theme}*/}
+            {/*        />*/}
+            {/*    </div>*/}
+            {/*)}*/}
             <Header theme={theme}/>
             <Greeting theme={theme}/>
             <Suspense fallback={<div></div>}>

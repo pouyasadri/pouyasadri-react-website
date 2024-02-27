@@ -58,8 +58,7 @@ export default function Greeting(props) {
 						></img> */}
                         <Lottie
                             options={defaultOptions}
-                            height={600}
-                            width={600}
+
                         />
                         {/*<FeelingProud theme={theme}/>*/}
                     </div>
