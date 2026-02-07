@@ -4,13 +4,14 @@
   "homepage": ".",
   "version": "1.0.0",
   "scripts": {
-    "build": "react-scripts build",
+    "build": "node generate-sitemap.js && react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b gh-pages -d build",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "dev": "react-scripts dev",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "sitemap": "node generate-sitemap.js"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",
