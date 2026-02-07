@@ -1,3 +1,0 @@
-Sitemap: https://wwww.pouyasadri.com/sitemap.xml
-User-agent: *
-Disallow:
