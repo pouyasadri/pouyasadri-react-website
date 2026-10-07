@@ -1,0 +1,47 @@
+{
+  "_meta": {
+    "note": "Stub FAQ aligned to CV positioning; editable via Sanity faq schema"
+  },
+  "items": [
+    {
+      "question": {
+        "fr": "Qui est Pouya Sadri ?",
+        "en": "Who is Pouya Sadri?"
+      },
+      "answer": {
+        "fr": "Pouya Sadri (Seyedpouya Sadrifard) est un ingénieur full-stack freelance senior basé à Strasbourg, spécialisé en plateformes produit (Next.js, NestJS, TypeScript), backends Go et tooling MCP.",
+        "en": "Pouya Sadri (Seyedpouya Sadrifard) is a senior freelance full-stack engineer based in Strasbourg, focused on product platforms (Next.js, NestJS, TypeScript), Go backends, and MCP tooling."
+      }
+    },
+    {
+      "question": {
+        "fr": "Quelle est l’offre principale ?",
+        "en": "What is the primary offer?"
+      },
+      "answer": {
+        "fr": "Les plateformes produit web avec Next.js / NestJS / TypeScript — de l’MVP à la production.",
+        "en": "Product web platforms with Next.js / NestJS / TypeScript — from MVP to production."
+      }
+    },
+    {
+      "question": {
+        "fr": "Travaillez-vous à distance et en France ?",
+        "en": "Do you work remotely and in France?"
+      },
+      "answer": {
+        "fr": "Oui — basé à Strasbourg, clients France/UE et remote international (FR / EN).",
+        "en": "Yes — based in Strasbourg, serving France/EU and international remote clients (FR / EN)."
+      }
+    },
+    {
+      "question": {
+        "fr": "Comment prendre contact ?",
+        "en": "How do I get in touch?"
+      },
+      "answer": {
+        "fr": "Via le formulaire sur /contact, par e-mail (info@pouyasadri.com) ou WhatsApp (+33 7 68 41 11 96).",
+        "en": "Use the form on /contact, email info@pouyasadri.com, or WhatsApp (+33 7 68 41 11 96)."
+      }
+    }
+  ]
+}

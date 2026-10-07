@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "note": "Owned /writing replaces blog.pouyasadri.com. Medium/YouTube ingestion is stubbed — see src/lib/content/media.ts"
+  },
+  "posts": [
+    {
+      "slug": "plateformes-produit-next-nestjs",
+      "title": {
+        "fr": "Plateformes produit avec Next.js et NestJS",
+        "en": "Product platforms with Next.js and NestJS"
+      },
+      "excerpt": {
+        "fr": "Brouillon : pourquoi l’offre principale du site est la plateforme produit (stub CMS).",
+        "en": "Draft: why the site’s lead offer is the product platform (CMS stub)."
+      },
+      "publishedAt": "2026-10-07",
+      "body": {
+        "fr": "Contenu à rédiger dans Sanity. Ce stub existe pour le routage /writing/[slug] et le sitemap.",
+        "en": "Body to be written in Sanity. This stub exists for /writing/[slug] routing and the sitemap."
+      }
+    }
+  ]
+}
