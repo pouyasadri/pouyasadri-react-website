@@ -29,21 +29,25 @@ export default async function ServicesPage({
   const dict = await getDictionary(raw);
 
   return (
-    <section className="section">
-      <h1>{dict.services.title}</h1>
-      <p className="muted">{dict.services.intro}</p>
-      <div className="list-plain">
-        <div>
-          <h2>{dict.services.lead.title}</h2>
+    <section className="page-section animate-fade-up">
+      <h1 className="page-heading">{dict.services.title}</h1>
+      <p className="page-sub">{dict.services.intro}</p>
+      <ul className="list-plain">
+        <li>
+          <p className="title" style={{ margin: 0 }}>
+            {dict.services.lead.title}
+          </p>
           <p className="muted">{dict.services.lead.body}</p>
-        </div>
+        </li>
         {dict.services.supporting.map((item) => (
-          <div key={item.title}>
-            <h2>{item.title}</h2>
+          <li key={item.title}>
+            <p className="title" style={{ margin: 0 }}>
+              {item.title}
+            </p>
             <p className="muted">{item.body}</p>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

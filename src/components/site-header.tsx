@@ -1,10 +1,14 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { Dictionary } from "@/lib/i18n/dictionaries/fr";
 import type { Locale } from "@/lib/i18n/config";
 import { localePath } from "@/lib/i18n/config";
 import { SITE } from "@/lib/site";
 
 const navKeys = [
+  ["home", ""],
   ["work", "work"],
   ["services", "services"],
   ["writing", "writing"],
@@ -20,24 +24,40 @@ type Props = {
 
 export function SiteHeader({ locale, dict }: Props) {
   const other: Locale = locale === "fr" ? "en" : "fr";
+  const pathname = usePathname();
 
   return (
-    <header className="site-header">
-      <div className="site-header__inner">
-        <Link href={localePath(locale)} className="site-brand">
-          {SITE.brand}
-        </Link>
-        <nav className="site-nav" aria-label="Main">
-          {navKeys.map(([key, path]) => (
-            <Link key={key} href={localePath(locale, `/${path}`)}>
-              {dict.nav[key]}
-            </Link>
-          ))}
-          <Link href={localePath(other)} className="locale-switch" hrefLang={other}>
+    <header className="header animate-fade-down">
+      <Link href={localePath(locale)} className="logo" aria-label={SITE.brand}>
+        <span>&lt;</span>
+        <span className="logo-name">{SITE.brand}</span>
+        <span>/&gt;</span>
+      </Link>
+      <input className="menu-btn" type="checkbox" id="menu-btn" />
+      <label className="menu-icon" htmlFor="menu-btn" aria-label="Menu">
+        <span className="navicon" />
+      </label>
+      <ul className="menu">
+        {navKeys.map(([key, path]) => {
+          const href = localePath(locale, path ? `/${path}` : "");
+          const active =
+            path === ""
+              ? pathname === href || pathname === `/${locale}`
+              : pathname === href || pathname.startsWith(`${href}/`);
+          return (
+            <li key={key}>
+              <Link href={href} className={active ? "is-active" : undefined}>
+                {key === "home" ? dict.nav.home : dict.nav[key]}
+              </Link>
+            </li>
+          );
+        })}
+        <li>
+          <Link href={localePath(other)} hrefLang={other} className="locale-switch">
             {other.toUpperCase()}
           </Link>
-        </nav>
-      </div>
+        </li>
+      </ul>
     </header>
   );
 }

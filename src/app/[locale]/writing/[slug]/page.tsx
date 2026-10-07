@@ -42,11 +42,13 @@ export default async function WritingPostPage({
   if (!post) notFound();
 
   return (
-    <article className="section prose-block">
+    <article className="page-section prose-block animate-fade-up">
       <p className="muted">
         <Link href={localePath(locale, "/writing")}>{dict.writing.title}</Link>
       </p>
-      <h1>{localize(post.title, locale)}</h1>
+      <h1 className="page-heading" style={{ textAlign: "left", marginTop: "1rem" }}>
+        {localize(post.title, locale)}
+      </h1>
       {post.publishedAt ? <p className="muted">{post.publishedAt}</p> : null}
       <p>{localize(post.excerpt, locale)}</p>
       {post.body ? <p>{localize(post.body, locale)}</p> : null}

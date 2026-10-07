@@ -43,11 +43,13 @@ export default async function WorkCasePage({
   if (!project) notFound();
 
   return (
-    <article className="section prose-block">
+    <article className="page-section prose-block animate-fade-up">
       <p className="muted">
         <Link href={localePath(locale, "/work")}>{dict.work.title}</Link>
       </p>
-      <h1>{localize(project.title, locale)}</h1>
+      <h1 className="page-heading" style={{ textAlign: "left", marginTop: "1rem" }}>
+        {localize(project.title, locale)}
+      </h1>
       <p>{localize(project.summary, locale)}</p>
       <div className="stack-tags">
         {project.language ? <span>{project.language}</span> : null}
@@ -56,7 +58,12 @@ export default async function WorkCasePage({
         ))}
       </div>
       <p>
-        <a href={project.githubUrl} rel="noopener noreferrer" target="_blank">
+        <a
+          className="main-button"
+          href={project.githubUrl}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           {dict.work.github}
         </a>
       </p>

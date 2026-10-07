@@ -35,14 +35,22 @@ export default async function FaqPage({
   const items = await getFaqItems();
 
   return (
-    <section className="section faq">
+    <section className="page-section faq animate-fade-up">
       <JsonLd data={faqPageJsonLd(items, locale)} />
-      <h1>{dict.faq.title}</h1>
-      <p className="muted">{dict.faq.intro}</p>
+      <div className="page-heading-row">
+        <div>
+          <h1 className="page-heading">{dict.faq.title}</h1>
+          <p className="page-sub">{dict.faq.intro}</p>
+        </div>
+        <div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/faq.svg" alt="" width={360} height={280} />
+        </div>
+      </div>
       {items.map((item) => (
         <details key={localize(item.question, locale)}>
           <summary>{localize(item.question, locale)}</summary>
-          <p className="muted">{localize(item.answer, locale)}</p>
+          <p>{localize(item.answer, locale)}</p>
         </details>
       ))}
     </section>

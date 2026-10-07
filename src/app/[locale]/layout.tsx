@@ -54,7 +54,7 @@ export default async function LocaleLayout({
         <div className="site-shell">
           <SiteHeader locale={locale} dict={dict} />
           <main className="site-main">{children}</main>
-          <SiteFooter dict={dict} />
+          <SiteFooter dict={dict} locale={locale} />
         </div>
       </body>
     </html>

@@ -36,7 +36,7 @@ export function ContactForm({ dict, locale }: Props) {
         <textarea id="message" name="message" rows={6} required />
       </label>
 
-      <button type="submit" disabled={pending}>
+      <button className="main-button" type="submit" disabled={pending}>
         {dict.submit}
       </button>
 

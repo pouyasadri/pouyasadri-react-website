@@ -37,9 +37,9 @@ export default async function WritingPage({
   const youtube = await getYouTubeItems();
 
   return (
-    <section className="section">
-      <h1>{dict.writing.title}</h1>
-      <p className="muted">{dict.writing.intro}</p>
+    <section className="page-section animate-fade-up">
+      <h1 className="page-heading">{dict.writing.title}</h1>
+      <p className="page-sub">{dict.writing.intro}</p>
 
       {posts.length === 0 ? (
         <p className="note">{dict.writing.empty}</p>

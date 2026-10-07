@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { isLocale, type Locale } from "@/lib/i18n/config";
@@ -5,6 +6,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 import { ContactForm } from "@/components/contact-form";
 import { getSiteSettings } from "@/lib/content/settings";
 import { SITE } from "@/lib/site";
+import { SocialLinks } from "@/components/social-links";
 
 export async function generateMetadata({
   params,
@@ -34,9 +36,24 @@ export default async function ContactPage({
   const settings = await getSiteSettings();
 
   return (
-    <section className="section">
-      <h1>{dict.contact.title}</h1>
-      <p className="muted">{dict.contact.intro}</p>
+    <section className="page-section animate-fade-up">
+      <div className="page-heading-row">
+        <div>
+          <h1 className="page-heading">{dict.contact.title}</h1>
+          <p className="page-sub">{dict.contact.intro}</p>
+          <SocialLinks />
+        </div>
+        <div>
+          <Image
+            src="/images/pouyasadri_image.png"
+            alt="Pouya Sadri"
+            width={280}
+            height={280}
+            style={{ borderRadius: "50%", objectFit: "cover" }}
+            priority
+          />
+        </div>
+      </div>
       <ContactForm dict={dict.contact} locale={locale} />
       <aside className="contact-aside">
         <p>
