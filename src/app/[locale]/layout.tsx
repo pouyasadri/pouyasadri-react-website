@@ -4,6 +4,7 @@ import { LOCALES, isLocale, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { HtmlLang } from "@/components/html-lang";
 import { JsonLd } from "@/components/json-ld";
 import { personJsonLd, professionalServiceJsonLd } from "@/lib/seo/json-ld";
 import { SITE } from "@/lib/site";
@@ -47,16 +48,15 @@ export default async function LocaleLayout({
   const dict = await getDictionary(locale);
 
   return (
-    <html lang={locale}>
-      <body>
-        <JsonLd data={personJsonLd()} />
-        <JsonLd data={professionalServiceJsonLd()} />
-        <div className="site-shell">
-          <SiteHeader locale={locale} dict={dict} />
-          <main className="site-main">{children}</main>
-          <SiteFooter dict={dict} locale={locale} />
-        </div>
-      </body>
-    </html>
+    <>
+      <HtmlLang lang={locale} />
+      <JsonLd data={personJsonLd()} />
+      <JsonLd data={professionalServiceJsonLd()} />
+      <div className="site-shell">
+        <SiteHeader locale={locale} dict={dict} />
+        <main className="site-main">{children}</main>
+        <SiteFooter dict={dict} locale={locale} />
+      </div>
+    </>
   );
 }

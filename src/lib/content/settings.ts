@@ -2,7 +2,7 @@ import "server-only";
 
 import { SITE } from "@/lib/site";
 import type { SiteSettings } from "@/lib/content/types";
-import { isSanityConfigured, sanityClient } from "@/lib/sanity/client";
+import { getSanityClient, isSanityConfigured } from "@/lib/sanity/client";
 
 const SETTINGS_QUERY = `*[_type == "siteSettings"][0] {
   email,
@@ -26,19 +26,25 @@ const defaults: SiteSettings = {
 };
 
 export async function getSiteSettings(): Promise<SiteSettings> {
-  if (isSanityConfigured() && sanityClient) {
-    try {
-      const remote = await sanityClient.fetch<SiteSettings | null>(SETTINGS_QUERY);
-      if (remote) {
-        return {
-          ...defaults,
-          ...remote,
-          socials: { ...defaults.socials, ...remote.socials },
-        };
+  "use cache";
+
+  if (isSanityConfigured()) {
+    const client = getSanityClient();
+    if (client) {
+      try {
+        const remote = await client.fetch<SiteSettings | null>(SETTINGS_QUERY);
+        if (remote) {
+          return {
+            ...defaults,
+            ...remote,
+            socials: { ...defaults.socials, ...remote.socials },
+          };
+        }
+      } catch {
+        // fall through
       }
-    } catch {
-      // fall through
     }
   }
+
   return defaults;
 }

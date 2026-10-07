@@ -2,7 +2,7 @@ import "server-only";
 
 import seed from "../../../content/seed/writing.json";
 import type { WritingPost } from "@/lib/content/types";
-import { isSanityConfigured, sanityClient } from "@/lib/sanity/client";
+import { getSanityClient, isSanityConfigured } from "@/lib/sanity/client";
 
 const seedPosts = seed.posts as WritingPost[];
 
@@ -23,25 +23,37 @@ const POST_BY_SLUG_QUERY = `*[_type == "writingPost" && slug.current == $slug][0
 }`;
 
 export async function getWritingPosts(): Promise<WritingPost[]> {
-  if (isSanityConfigured() && sanityClient) {
-    try {
-      const remote = await sanityClient.fetch<WritingPost[]>(POSTS_QUERY);
-      if (remote.length > 0) return remote;
-    } catch {
-      // fall through
+  "use cache";
+
+  if (isSanityConfigured()) {
+    const client = getSanityClient();
+    if (client) {
+      try {
+        const remote = await client.fetch<WritingPost[]>(POSTS_QUERY);
+        if (remote.length > 0) return remote;
+      } catch {
+        // fall through
+      }
     }
   }
+
   return seedPosts;
 }
 
 export async function getWritingPostBySlug(slug: string): Promise<WritingPost | undefined> {
-  if (isSanityConfigured() && sanityClient) {
-    try {
-      const remote = await sanityClient.fetch<WritingPost | null>(POST_BY_SLUG_QUERY, { slug });
-      if (remote) return remote;
-    } catch {
-      // fall through
+  "use cache";
+
+  if (isSanityConfigured()) {
+    const client = getSanityClient();
+    if (client) {
+      try {
+        const remote = await client.fetch<WritingPost | null>(POST_BY_SLUG_QUERY, { slug });
+        if (remote) return remote;
+      } catch {
+        // fall through
+      }
     }
   }
+
   return seedPosts.find((p) => p.slug === slug);
 }
